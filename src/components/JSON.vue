@@ -10,9 +10,7 @@
       <h3>Iterating through Arrays</h3>
       <!-- Activity 6: Render a list containing author names and their birth years. Hint: Make use of the v-for directive to iterate through the array of authors. -->
       <ul>
-        <li v-for="author in authors" :key="author.id"
-            :class="{ highlight: author.name === 'George Orwell' }"
-            :style="author.name === 'George Orwell' ? { fontWeight: 'bold', color: '#fff' } : {}">
+        <li v-for="author in authors" :key="author.id">
           {{ author.name }} ({{ author.birthYear }})
         </li>
       </ul>
@@ -98,7 +96,16 @@
     <section class="lab-section">
       <h2>Attribute, Class and Style Binding with <code>v-bind</code></h2>
       <p>Highlighting Specific Authors:</p>
-
+      <ul>
+        <li
+          v-for="author in authors"
+          :key="author.id"
+          :class="{ highlight: author.name === 'George Orwell' }"
+          :style="author.name === 'George Orwell' ? { fontWeight: 'bold', backgroundColor: '#ffe082' } : {}"
+        >
+          {{ author.name }} ({{ author.birthYear }})
+        </li>
+      </ul>
     </section>
   </div>
 </template>
